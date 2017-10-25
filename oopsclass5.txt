@@ -1,0 +1,256 @@
+8-8-17 classNo :5
+
+IDE- sublime text
+
+Constructor in java is a special type of method that is used to initialize the object.
+
+Java constructor is invoked at the time of object creation. It constructs the values i.e. provides data for the object that is why it is known as constructor.
+
+
+
+There are basically two rules defined for the constructor.
+1.Constructor name must be same as its class name
+2.Constructor must have no explicit return type
+
+types of constructor 
+1.default 
+2.parametrized
+
+Example of default constructor
+In this example, we are creating the no-arg constructor in the Bike class. It will be invoked at the time of object creation.
+
+1.class Bike1{  
+2.Bike1(){System.out.println("Bike is created");}  
+3.public static void main(String args[]){  
+4.Bike1 b=new Bike1();  
+5.}  
+6.}  
+
+
+example 2::
+
+1.class Student3{  
+2.int id;  
+3.String name;  
+4.  
+5.void display(){System.out.println(id+" "+name);}  
+6.  
+7.public static void main(String args[]){  
+8.Student3 s1=new Student3();  
+9.Student3 s2=new Student3();  
+s1.id=101;
+s1.name="alex";
+10.s1.display();  
+11.s2.display();  
+12.}  
+13.}  
+
+
+Java parameterized constructor:
+
+A constructor that have parameters is known as parameterized constructor.
+Why use parameterized constructor?
+Parameterized constructor is used to provide different values to the distinct objects.
+Example of parameterized constructor:
+
+1.class Student4{  
+2.    int id;  
+3.    String name;  
+4.      
+5.    Student4(int i,string n){  //called
+6.    id = i;  
+7.    name = n;  
+8.    } 
+9.    void display(){System.out.println(id+" "+name);}  
+10.   
+11.    public static void main(String args[]){  
+12.    Student4 s1 = new Student4(111,"Karan"); //calling 
+13.    Student4 s2 = new Student4(222,"Aryan");  
+14.    s1.display();  
+15.    s2.display();  
+16.   }  
+17.}  
+
+Output:
+111 Karan
+222 Aryan
+
+Constructor Overloading in Java:
+
+Constructor overloading is a technique in Java in which a class can have any number of constructors that differ in parameter lists.The compiler differentiates these constructors by taking into account the number of parameters in the list and their type.
+Example of Constructor Overloading
+
+1.class Student5{  
+2.    int id;  
+3.    String name;  
+4.    int age;  
+5.    Student5(int i,String n){  
+6.    id = i;  
+7.    name = n;  
+8.    }  
+9.    Student5(int i,String n,int a){  
+10.    id = i;  
+11.    name = n;  
+12.    age=a;  
+13.    }  
+14.    void display(){System.out.println(id+" "+name+" "+age);}  
+15.   
+16.    public static void main(String args[]){  
+17.    Student5 s1 = new Student5(111,"Karan");  
+18.    Student5 s2 = new Student5(222,"Aryan",25);  
+19.    s1.display();  
+20.    s2.display();  
+21.   }  
+22.}  
+Output:
+111 Karan 0
+222 Aryan 25
+
+copy constructor:
+example;
+1.class Student6{  
+2.    int id;  
+3.    String name;  
+4.    Student6(int i,String n){  
+5.    id = i;  
+6.    name = n;  
+7.    }  
+8.      
+9.    Student6(Student6 s){  
+10.    id = s.id;  
+11.    name =s.name;  
+12.    }  
+13.    void display(){System.out.println(id+" "+name);}  
+14.   
+15.    public static void main(String args[]){  
+16.    Student6 s1 = new Student6(111,"Karan");  
+17.    Student6 s2 = new Student6(s1);  
+18.    s1.display();  
+19.    s2.display();  
+20.   }  
+21.}  
+
+o/p:: 111 karan 111 karan
+ 
+
+Java static keyword:
+The static keyword in java is used for memory management mainly. We can apply java static keyword with variables, methods, blocks and nested class. The static keyword belongs to the class than instance of the class.
+
+
+The static can be:
+1.variable (also known as class variable)
+2.method (also known as class method)
+
+
+1) static variables:
+The static variable gets memory only once in class area at the time of class loading.
+
+Advantage of static variable:
+It makes your program memory efficient (i.e it saves memory).
+Understanding problem without static variable
+
+1.class Student{  
+2.     int rollno;  
+3.     String name;  
+4.     String college="ITS";  
+5.}  
+Suppose there are 500 students in my college, now all instance data members will get memory each time when object is created.All student have its unique rollno and name so instance data member is good.Here, college refers to the common property of all objects.If we make it static,this field will get memory only once.
+
+
+
+
+Example of static variable
+
+ 
+
+1.//Program of static variable  
+2.  
+3.class Student8{  
+4.   int rollno;  
+5.   String name;  
+6.   static String college ="ITS";  
+7.     
+8.   Student8(int r,String n){  
+9.   rollno = r;  
+10.   name = n;  
+11.   }  
+12. void display (){System.out.println(rollno+" "+name+" "+college);}  
+13.  
+14. public static void main(String args[]){  
+15. Student8 s1 = new Student8(111,"Karan");  
+16. Student8 s2 = new Student8(222,"Aryan");  
+17.   
+18. s1.display();  
+19. s2.display();  
+20. }  
+21.}    
+o/p: 111 karan ITS
+	222 aryan ITS
+
+
+2) static method:
+If you apply static keyword with any method, it is known as static method.
+A static method belongs to the class rather than object of a class.
+A static method can be invoked without the need for creating an instance of a class.
+static method can access static data member and can change the value of it.
+
+
+
+Example of static method
+
+1.//Program of changing the common property of all objects(static field).  
+2.  
+3.class Student9{  
+4.     int rollno;  
+5.     String name;  
+6.     static String college = "ITS";  
+7.       
+8.     static void change(){  
+9.     college = "BBDIT";  
+10.     }  
+11.  
+12.     Student9(int r, String n){  
+13.     rollno = r;  
+14.     name = n;  
+15.     }  
+16.  
+17.     void display (){System.out.println(rollno+" "+name+" "+college);}  
+18.  
+19.    public static void main(String args[]){  
+20.    Student9.change();  
+21.  
+22.    Student9 s1 = new Student9 (111,"Karan");  
+23.    Student9 s2 = new Student9 (222,"Aryan");  
+24.    Student9 s3 = new Student9 (333,"Sonoo");  
+25.  
+26.    s1.display();  
+27.    s2.display();  
+28.    s3.display();  
+29.    }  
+30.}  
+
+Output:111 Karan BBDIT
+       222 Aryan BBDIT
+       333 Sonoo BBDIT
+
+Another example of static method that performs normal calculation
+
+1.//Program to get cube of a given number by static method  
+2.  
+3.class Calculate{  
+4.  static int cube(int x){  
+5.    return x*x*x;  
+6.  }  
+7.  
+8.  public static void main(String args[]){  
+9.  int result=Calculate.cube(5);  
+10.  System.out.println(result);    
+11.  }  
+12.}  o/p:125
+
+1) sairambitra7@gmail.com
+2)shaikferoz444@gmail.com
+3)immadidivya26@gmail.com
+
+
+

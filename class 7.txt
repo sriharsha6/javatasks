@@ -1,0 +1,173 @@
+this keyword in java:::
+--------------------
+There can be a lot of usage of java this keyword. In java, this is a reference variable that refers to the current object.
+
+
+
+problem with out using this keyword(we get 0,null as output)
+
+ 1.class Student{  
+2.int rollno;  
+3.String name;  
+4.float fee;  
+5.Student(int rollno,String name,float fee){  
+6.rollno=rollno;  
+7.name=name;  
+8.fee=fee;  
+9.}  
+10.void display(){System.out.println(rollno+" "+name+" "+fee);}  
+11.}  
+12.class TestThis1{  
+13.public static void main(String args[]){  
+14.Student s1=new Student(111,"ankit",5000f);  
+15.Student s2=new Student(112,"sumit",6000f);  
+16.s1.display();  
+17.s2.display();  
+}}
+
+o/p: 0 null
+	0,null
+
+
+
+
+
+In the above example, parameters (formal arguments) and instance variables are same. So, we are using this keyword to distinguish local variable and instance variable.
+Solution of the above problem by this keyword
+
+1.class Student{  
+2.int rollno;  
+3.String name;  
+4.float fee;  
+5.Student(int rollno,String name,float fee){  
+6.this.rollno=rollno;  
+7.this.name=name;  
+8.this.fee=fee;  
+9.}  
+10.void display(){System.out.println(rollno+" "+name+" "+fee);}  
+11.}  
+12.  
+13.class TestThis2{  
+14.public static void main(String args[]){  
+15.Student s1=new Student(111,"ankit",5000f);  
+16.Student s2=new Student(112,"sumit",6000f);  
+17.s1.display();  
+18.s2.display();  
+19.}}  
+Output:
+111 ankit 5000
+112 sumit 6000
+
+ 
+reusing of this constructor::
+--------------------------
+
+The this() constructor call should be used to reuse the constructor from the constructor. It maintains the chain between the constructors i.e. it is used for constructor chaining. Let's see the example given below that displays the actual use of this keyword.
+
+
+1.class Student{  
+2.int rollno;  
+3.String name,course;  
+4.float fee;  
+5.Student(int rollno,String name,String course){  
+6.this.rollno=rollno;  
+7.this.name=name;  
+8.this.course=course;  
+9.}  
+10.Student(int rollno,String name,String course,float fee){  
+11.this(rollno,name,course);//reusing constructor  
+12.this.fee=fee;  
+13.}  
+14.void display(){System.out.println(rollno+" "+name+" "+course+" "+fee);}  
+15.}  
+16.class TestThis7{  
+17.public static void main(String args[]){  
+18.Student s1=new Student(111,"ankit","java");  
+19.Student s2=new Student(112,"sumit","java",6000f);  
+20.s1.display();  
+21.s2.display();  
+22.}}  
+
+Output:
+111 ankit java null
+112 sumit java 6000
+
+
+		Final Keyword::
+	--------------------------
+
+The final keyword in java is used to restrict the user. The java final keyword can be used in many context. Final can be:
+1.variable
+2.method
+3.class
+
+will be discussed after inheritence and method overriding.
+
+
+
+Inheritance::
+-----------
+
+Inheritance in java is a mechanism in which one object acquires all the properties and behaviors of parent object.
+
+
+Why use inheritance in java
+1)For Method Overriding (so runtime polymorphism can be achieved).
+2)For Code Reusability.
+Syntax of Java Inheritance
+
+1.class Subclass-name extends Superclass-name  
+2.{  
+3.   //methods and fields  
+4.}  
+
+example 1::
+1.class Employee{  
+2. float salary=40000;  
+3.}  
+4.class Programmer extends Employee{  
+5. int bonus=10000;
+6. public static void main(String args[]){  
+7.   Programmer p=new Programmer();  
+8.   System.out.println("Programmer salary is:"+p.salary);  
+9.   System.out.println("Bonus of Programmer is:"+p.bonus);  
+10.}  
+11.}  
+
+Programmer salary is:40000.0
+ Bonus of programmer is:10000
+
+On the basis of class, there can be three types of inheritance in java: single, multilevel and hierarchical.
+In java programming, multiple and hybrid inheritance is supported through interface only. We will learn about interfaces later. 
+
+
+Single Inheritance Example::
+ 
+1.class Animal{  
+2.void eat(){System.out.println("eating...");}  
+3.}  
+4.class Dog extends Animal{  
+5.void bark(){System.out.println("barking...");}  
+6.}  
+7.class TestInheritance{  
+8.public static void main(String args[]){  
+9.Dog d=new Dog();  
+10.d.bark();  
+11.d.eat();  
+}}   
+
+Output:
+barking...
+eating...
+
+
+
+
+
+
+
+
+
+
+
+

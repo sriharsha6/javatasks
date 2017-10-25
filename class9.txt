@@ -1,0 +1,69 @@
+types of inheritance
+------------------
+
+1)single
+2)multilevel
+3)hierarchical
+
+single inheritance example::
+
+1.class Animal{  
+2.void eat(){System.out.println("eating...");}  
+3.}  
+4.class Dog extends Animal{  
+5.void bark(){System.out.println("barking...");}  
+6.}  
+7.class TestInheritance{  
+8.public static void main(String args[]){  
+9.Dog d=new Dog();  
+10.d.bark();  
+11.d.eat();  
+12.}}  
+
+1)single
+2)multilevel
+3)hierarchical
+
+Multilevel Inheritance Example
+File: TestInheritance2.java
+
+1.class Animal{  
+2.void eat(){System.out.println("eating...");}  
+3.}  
+4.class Dog extends Animal{  
+5.void bark(){System.out.println("barking...");}  
+6.}  
+7.class BabyDog extends Dog{  
+8.void weep(){System.out.println("weeping...");}  
+9.}  
+10.class TestInheritance2{  
+11.public static void main(String args[]){  
+12.BabyDog d=new BabyDog();  
+13.d.weep();  
+14.d.bark();  
+15.d.eat();  
+16.}}  
+
+3) hie.java
+
+class Animal{
+	void eat(){System.out.println("eating");}
+}
+
+class Dog extends Animal{
+ 	void bark(){System.out.println("barking......");}
+}
+class Cat extends Animal{
+      void meow(){System.out.println(" mewoing......");}
+}
+class Hie{
+	public static void main(String args[]){
+		 Cat c=new Cat();
+		 c.meow();
+		 c.eat();
+		 Dog d=new Dog();
+		 d.eat();
+		 d.bark();
+		 
+	}
+}
